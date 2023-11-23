@@ -65,7 +65,13 @@ const tabuleiro=(j)=>{
 
   </div>
   
-  ) }
+  ) 
+}
+const btnJogarNovamente=()=>{
+  if(!jogando){
+    return <button onclick={()=>reiniciar()}>Jogar novamente</button>
+  }
+}
   const verificaVitoria=()=>{
 //linhas 
     let pontos=0
@@ -98,11 +104,9 @@ const tabuleiro=(j)=>{
   }
 pontos = 0
 for(let d=0;d<3; d++){
-  if (jogo[d][d]){
-    if (jogo[l][c]==simboloAtual){
+  if (jogo[d][d]==simboloAtual){
       pontos++
     }
-  }
   } if (pontos >= 3){
     vitoria=true
     return 
@@ -133,6 +137,28 @@ const verificaEspacoVazio=()=>{
   if(jogo[retPos(e)[0]][retPos(e)[1]]){
     return true} else{
       return true
+    }
+  }
+  const joga=()=>{
+    if(jogando){
+      if(verificaEspacoVazio){
+        jogo[retPos(e)[0], retPos(e)[1]]=simboloAtual
+        trocaJogador()
+        if (verificaVitoria()){
+          trocaJogador()
+          alert('jogador' + simboloAtual+ 'venceu')
+          setJogando(false)
+        }else{
+          alert('este espaao não está vago, tente outro')
+        }
+      }
+    }
+
+    const reiniciar=()=>{
+setJogando(true)
+setJogo(jogoInicial)
+setSimboloAtual('X')
+
     }
   }
 }
