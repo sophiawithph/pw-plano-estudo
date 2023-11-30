@@ -130,7 +130,7 @@ const trocaJogador=()=>{
 }
 const retornaPos=(e)=>{
   const p=e.target.getAttribute ('data-pos')
-  const pos = [paserInt(p.substring(0,1),passerInt(p.substring(1,2)))]
+  const pos = [parserInt(p.substring(0,1),parserInt(p.substring(1,2)))]
   return pos
 }
 const verificaEspacoVazio=()=>{
@@ -164,6 +164,28 @@ setSimboloAtual('X')
 }
 {
 return (
-hhhhh
+<>
+<div>
+
+
+
+<p>Quem joga: (simboloAtual)</p>
+
+
+
+</div>
+
+
+
+<div>
+
+[tabuleiro(jogo)]
+</div>
+<div>
+BtnJogarNovamente
+</div>
+
+</>
+
     );
 };
